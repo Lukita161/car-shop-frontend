@@ -1,7 +1,7 @@
 import { Navigate, useParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
-import { getCarById } from "../../api/Admin/CarsManagementApi"
-import { CarForm } from "../../components/Admin/Catalog/CarForm"
+import { getCarById } from "../../../api/Admin/CarsManagementApi"
+import { CarForm } from "../../../components/Admin/Catalog/CarForm"
 
 const EditCarPage = ()=> {
     const params = useParams()

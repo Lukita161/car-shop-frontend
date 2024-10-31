@@ -3,13 +3,13 @@ import {
   countCarsRegisters,
   getCarByBrand,
   getCars,
-} from "../../api/Admin/CarsManagementApi";
+} from "../../../api/Admin/CarsManagementApi";
 import { Link, Navigate, useLocation } from "react-router-dom";
-import { CarCard } from "../../components/Admin/Catalog/CarCard";
-import { brand } from "../../data/Brands";
+import { CarCard } from "../../../components/Admin/Catalog/CarCard";
+import { brand } from "../../../data/Brands";
 import { useEffect, useState } from "react";
-import { CarsPagination } from "../../components/Admin/Catalog/CarsPagination";
-import { SkeletonLoader } from "../../components/UI/SkeletonLoader";
+import { CarsPagination } from "../../../components/Admin/Catalog/CarsPagination";
+import { SkeletonLoader } from "../../../components/UI/SkeletonLoader";
 
 const pageSize = 12;
 const totalCars = async () => {

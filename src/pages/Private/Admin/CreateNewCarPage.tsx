@@ -1,11 +1,11 @@
 import { useMutation } from "@tanstack/react-query"
-import { brand } from "../../data/Brands"
-import { createCar } from "../../api/Admin/CarsManagementApi"
-import { UploadImage } from "../../components/Admin/Catalog/UploadImage"
+import { brand } from "../../../data/Brands"
+import { createCar } from "../../../api/Admin/CarsManagementApi"
+import { UploadImage } from "../../../components/Admin/Catalog/UploadImage"
 import { useState } from "react"
-import { ImageUrlArray } from "../../types"
+import { ImageUrlArray } from "../../../types"
 import { toast } from "react-toastify"
-import { GoBackArrow } from "../../components/UI/GoBackArrow"
+import { GoBackArrow } from "../../../components/UI/GoBackArrow"
 import { useNavigate } from "react-router-dom"
 
 const CreateNewCarPage = ()=> {

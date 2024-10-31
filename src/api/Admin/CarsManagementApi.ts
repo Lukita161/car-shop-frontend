@@ -20,6 +20,19 @@ export const createCar = async(formData: CreateCarFormType)=> {
     }
 }
 
+export const getAllCars = async()=> {
+    try {
+        const { data } = await axiosInstance.get(`/api/cars`)
+        const result = CarsInforSchema.safeParse(data)
+        if(result.error) {
+            throw new Error('Ha ocurrido un error')
+        }
+        return result.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const getCars = async(page: number)=> {
     try {
         const { data } = await axiosInstance.get(`/api/cars/car/pages/${page}`)

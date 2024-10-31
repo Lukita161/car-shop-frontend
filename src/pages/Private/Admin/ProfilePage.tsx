@@ -1,8 +1,8 @@
 import { PencilSquareIcon } from "@heroicons/react/24/outline";
-import { useAuth } from "../../hooks/useAuth";
+import { useAuth } from "../../../hooks/useAuth";
 import { useMemo, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { changeAdminCredentials } from "../../api/Admin/AdminApi";
+import { changeAdminCredentials } from "../../../api/Admin/AdminApi";
 import { toast } from "react-toastify";
 
 const ProfilePage = () => {

@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom"
-import { LoginForm } from "../../components/Login/LoginForm"
+import { LoginForm } from "../../../components/Private/Login/LoginForm"
 const LoginPage = ()=> {
     return (
         <>

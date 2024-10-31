@@ -10,6 +10,15 @@ export default {
         "primary": "#839788",
         "cream": "#eee0cb",
         "black": "#161616"
+      },
+      backgroundImage: {
+        "publicImageBackground": "url(/foto-homePage.jpg)"
+      },
+      backgroundPosition: {
+        "centerTop": "center 20px"
+      },
+      spacing: {
+        "20": "50px"
       }
     },
   },

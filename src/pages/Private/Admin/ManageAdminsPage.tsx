@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query"
-import { getAllAdmins } from "../../api/Admin/AdminApi"
+import { getAllAdmins } from "../../../api/Admin/AdminApi"
 import { Navigate, useNavigate } from "react-router-dom"
 import { XCircleIcon } from "@heroicons/react/24/outline"
-import { useAuth } from "../../hooks/useAuth"
+import { useAuth } from "../../../hooks/useAuth"
 import { lazy, Suspense } from "react"
 
-const CreateAdminModal = lazy(()=> import('../../components/Admin/Profile/CreateAdminModal'))
-const DeleteAdminModal = lazy(()=> import('../../components/Admin/Profile/DeleteAdminModal'))
+const CreateAdminModal = lazy(()=> import('../../../components/Admin/Profile/CreateAdminModal'))
+const DeleteAdminModal = lazy(()=> import('../../../components/Admin/Profile/DeleteAdminModal'))
 
 
 const ManageAdminsPage = ()=> {

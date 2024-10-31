@@ -1,0 +1,5 @@
+
+.gradient {
+    filter: blur(5);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.897), rgba(107, 106, 106, 0.295));
+}
