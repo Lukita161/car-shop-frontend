@@ -1,39 +1,60 @@
-import { useQuery } from "@tanstack/react-query"
-import { Navigate, useParams } from "react-router-dom"
-import { getCarById } from "../../api/Public/CarsApi"
-import { formatCurrency } from "../../utils/formatCurrency"
+import { useQuery } from "@tanstack/react-query";
+import { Navigate, useParams } from "react-router-dom";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { getCarById } from "../../api/Public/CarsApi";
+import { formatCurrency } from "../../utils/formatCurrency";
+import emailLogo from "../../assets/emailLogo.svg";
+import wppLogo from "../../assets/whatsapp-svgrepo-com.svg";
+import { ImageSlider } from "../../components/Public/ImageSlider";
 
-export const DetailCarPage = ()=> {
-    const params = useParams()
-    const { carId } = params!
-    const {data, isLoading, isError} = useQuery({
-        queryKey: ['carDetail'],
-        queryFn: ()=>getCarById(carId!),
-    })
-    if(isError) return <Navigate to={'/'} />
-    if(isLoading) return 'Cargando...'
-    if(data) return (
-        <section className="mt-8 mx-32 border rounded-lg border-gray-300 h-[82%] shadow-xl flex items-center justify-center">
-            <div className="w-[95%] h-[90%] flex rounded-md border border-gray-200 shadow">
-            <div className="w-[60%]">
-                <div className="w-full h-[90%] relative">
-                    <img className="object-fill rounded-tl-md h-[100%] w-full object-center shadow-md" src={data.image[0]} alt="Imagen de auto" />
-                </div>
-            </div>
-            <div className="m-6">
-                <div className="space-y-4">
-                <h1 className="text-3xl font-bold">{data.carName}</h1>
-                <p className="text-3xl">{formatCurrency(data.price)}</p>
 
-                </div>
-                <div>
-                <h1 >{data.description}</h1>
-                <button>Contactanos </button>
-                </div>
-            </div>
 
+export const DetailCarPage = () => {
+  const params = useParams();
+  const { carId } = params!;
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["carDetail"],
+    queryFn: () => getCarById(carId!),
+  });
+  
+  if (isError) return <Navigate to={"/"} />;
+  if (isLoading) return "Cargando...";
+  if (data)
+    return (
+      <section className="mt-8 mx-32 border rounded-lg border-gray-300 min-h-[90%] shadow-xl flex items-center justify-center">
+        <div className="w-[95%] min-h-[90%] flex rounded-md border border-gray-200 shadow">
+          <ImageSlider images={data.image} />
+          <div className="m-6 w-[40%] min-h-full">
+            <div className="space-y-5">
+              <h1 className="text-3xl font-bold">{data.carName}</h1>
+              <p className="text-3xl">{formatCurrency(data.price)}</p>
             </div>
-            
-        </section>
-    )
-}
+            <div className="min-h-[75%] w-full flex flex-col justify-between">
+              <div className="mt-8 space-y-5">
+                <h1 className="text-lg">{data.description}</h1>
+              </div>
+              <div className="flex flex-col w-full items-start justify-start ">
+                <div className="mx-auto mb-6">
+                  <p className="text-center text-xl font-bold">
+                    Agenda tu visita{" "}
+                  </p>
+                </div>
+
+                <div className="flex w-full h-full flex-col items-center justify-start space-y-1">
+                  <p className="flex items-center gap-3 cursor-pointer">
+                    <img className="w-7 h-7" src={emailLogo} alt="" />{" "}
+                    <span className="">car.auto@gmail.com</span>{" "}
+                  </p>
+                  <p className="flex items-center gap-2 cursor-pointer">
+                    <img className="w-8 h-8" src={wppLogo} alt="" />{" "}
+                    <span className="">+111 54 964 645</span>{" "}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+};

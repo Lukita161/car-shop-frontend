@@ -47,9 +47,9 @@ export const HomePage = () => {
               <div onMouseEnter={()=> setHover(car._id)} onMouseLeave={()=> setHover('')} className="border rounded-sm shadow-md border-gray-400 w-[368px] h-[436px]">
                 <div className="w-full flex flex-col">
 
-                <div className="w-full h-80 relative">
+                <div className="w-full h-80 relative overflow-hidden">
                   <img
-                    className="absolute inset-0 object-cover w-full h-full object-center cursor-pointer"
+                    className="absolute inset-0 object-cover w-full h-full object-center cursor-pointer hover:scale-110 transition-transform duration-150"
                     src={car.image[0]}
                     alt="Image"
                     />
