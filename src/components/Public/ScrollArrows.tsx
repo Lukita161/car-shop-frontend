@@ -19,11 +19,11 @@ export const ScrollArrows = ({
     <>
       <ArrowLeftIcon
         onClick={scrollLeft}
-        className="absolute left-20 top-1/2 -translate-y-1/2 w-12 h-12 text-white bg-gray-500 rounded-full p-2 cursor-pointer hover:bg-gray-400 transition-colors"
+        className="lg:block hidden  absolute left-20 top-1/2 -translate-y-1/2 w-12 h-12 text-white bg-gray-500 rounded-full p-2 cursor-pointer hover:bg-gray-400 transition-colors"
       />
       <ArrowRightIcon
         onClick={scrollRight}
-        className="absolute right-20 top-1/2 -translate-y-1/2 w-12 h-12 text-white bg-gray-500 rounded-full p-2 cursor-pointer hover:bg-gray-400 transition-colors"
+        className="lg:block hidden  absolute right-20 top-1/2 -translate-y-1/2 w-12 h-12 text-white bg-gray-500 rounded-full p-2 cursor-pointer hover:bg-gray-400 transition-colors"
       />
     </>
   );

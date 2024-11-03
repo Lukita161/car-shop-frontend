@@ -21,10 +21,10 @@ export const CatalogPage = ()=> {
         <h1 className="font-black text-3xl">Nuestros vehiculos:</h1>
         <p className="text-sm">Hora de encontrar tu auto ideal</p>
         </div>
-        <main className="mx-16 grid lg:grid-cols-5 md:grid-cols-2 sm:grid-cols-1 gap-7 pb-8">
+        <main className="mx-16 grid lg:grid-cols-5 md:grid-cols-2 sm:grid-cols-2 m-2 gap-7 pb-8">
             {data?.map(cars => (
                 <Link to={`/${cars.carName}/${cars.brand}/view/car/${cars._id}`} key={cars._id} onMouseEnter={()=> setHover(cars._id)} onMouseLeave={()=> setHover('')} className="flex w-[226px] flex-col border border-gray-400 cursor-pointer shadow">
-                    <div className="m-0 w-full h-[190px] relative flex items-top justify-center overflow-hidden">
+                    <div className="m-0 lg:w-full h-[190px] relative flex items-top justify-center overflow-hidden">
                         <img className="absolute object-fill h-[100%] w-full object-center shadow-md hover:scale-105 transition-transform duration-150" src={cars.image[0]} alt={`Imagen de ${cars.carName}`} />
                     </div>
                     <div className="border-t p-2 border-gray-300">

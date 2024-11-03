@@ -23,7 +23,7 @@ export const HomePage = () => {
           alt=""
         />
         <section className="absolute inset-0 my-auto mt-8 mx-auto z-50 flex flex-col justify-center items-center">
-          <div className="w-[40%] text-center bg-black/30 p-3 shadow-lg rounded-lg">
+          <div className="lg:w-[40%] w-[80%] text-center bg-black/30 p-3 shadow-lg rounded-lg">
             <h1 className="text-4xl text-cream font-black">
               Te ayudamos a encontrar tu <br /> proximo vehiculo
             </h1>
@@ -42,7 +42,7 @@ export const HomePage = () => {
           </h1>
         </div>
         <div ref={scrollRef} className="w-[80vw] mx-auto overflow-x-hidden ">
-          <div className="flex   overflow-y-hidden w-[170vw] mt-8 p-3 gap-8 shadow">
+          <div className="flex flex-col lg:flex-row mx-auto overflow-y-hidden w-[170vw] mt-8 p-3 gap-8 shadow">
             {data?.map((car) => (
               <div onMouseEnter={()=> setHover(car._id)} onMouseLeave={()=> setHover('')} className="border rounded-sm shadow-md border-gray-400 w-[368px] h-[436px]">
                 <div className="w-full flex flex-col">
@@ -55,7 +55,7 @@ export const HomePage = () => {
                     />
                 </div>
                 <h1 className={`${hover === car._id ? 'text-cyan-600': ''} text-xl font-normal m-3 mb-0 transition-colors duration-100 cursor-pointer`}>{car.carName}</h1>
-                  <button className="border-2 border-primary px-16 mx-auto mt-4 font-extrabold py-2 rounded-full shadow-lg hover:opacity-80 transition-opacity duration-150">Conocer más</button>
+                  <button className="border-2 border-primary py-2 px-16 mx-auto mt-4 font-extrabold lg:py-2 rounded-full shadow-lg hover:opacity-80 transition-opacity duration-150">Conocer más</button>
                     </div>
               </div>
             ))}

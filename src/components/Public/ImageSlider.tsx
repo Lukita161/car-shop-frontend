@@ -27,7 +27,7 @@ export const ImageSlider = ({ images }: { images: CarInfoType["image"] }) => {
     fade: true,
   };
   return (
-    <div className="w-[60%] inline-block slider-container relative">
+    <div className="lg:w-[60%] w-full inline-block slider-container relative">
       <Slider className="mr-4 flex" {...sliderSettings}>
         {images.map((img, index) => (
           <div key={index} className="w-full h-[400px]">
