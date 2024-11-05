@@ -47,3 +47,14 @@ export const getCarById = async(carId: CarInfoType['_id'])=> {
         }
     }
 }
+
+export const getCarByBrand = async(brand: CarInfoType['brand'])=> {
+    try {
+        const { data } = await axiosInstance.get<string>(`/api/cars/car/filters/${brand}`)
+        const result = CarsInforSchema.safeParse(data)
+        return result.data
+    } catch (error) {
+        if(isAxiosError(error) && error.response) {
+            throw new Error('No hay vehiculos de esta marca')
+        }
+}}

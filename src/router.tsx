@@ -8,6 +8,7 @@ import { HomePage } from "./pages/Public/HomePage";
 import { PublicLayout } from "./layout/Public/PublicLayout";
 import { CatalogPage } from "./pages/Public/CatalogPage";
 import { DetailCarPage } from "./pages/Public/DetailCarPage";
+import { BrandSearchCatalogPage } from "./pages/Public/BrandSearchCatalogPage";
 
 
 const LoginPage = lazy(()=> import('./pages/Private/Login/LoginPage'))
@@ -22,6 +23,7 @@ export const Router = ()=> {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/catalog" element={<CatalogPage/>} />
                 <Route path="/:carName/:carBrand/view/car/:carId" element={<DetailCarPage />} />
+                <Route path="/catalog/filter/brand/:carBrand" element={<BrandSearchCatalogPage />} />
             </Route>
         </Routes>
 
