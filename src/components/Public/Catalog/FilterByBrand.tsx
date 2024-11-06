@@ -9,17 +9,13 @@ export const FilterByBrand = ()=> {
 
     const navigate = useNavigate()
     const [selectedBrand, setSelectedBrand] = useState(
-        ()=> params.carBrand ? params.carBrand : 'Todas'
+      () => params.carBrand || "Todas"
     )
     const handleFilterCategory = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        e.preventDefault();
-        setSelectedBrand(e.target.value)
+      e.preventDefault();
+      setSelectedBrand(e.target.value)
       };
-      useEffect(()=> {
-        if(selectedBrand === "Todas") return navigate('/catalog')
-        queryClient.invalidateQueries({queryKey: ['filterCar']})
-        navigate(`/catalog/filter/brand/${selectedBrand}`);
-      },[selectedBrand, navigate, queryClient])
+      useEffect(() => { if (selectedBrand === "Todas") { navigate('/catalog'); } else { navigate(`/catalog/filter/brand/${selectedBrand}`); queryClient.invalidateQueries({ queryKey: ['filterCar'] }); } }, [selectedBrand, navigate, queryClient])
     return (
         <>
         <label htmlFor="filterBy">Filtrar por marca: {}</label>

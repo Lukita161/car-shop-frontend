@@ -33,7 +33,7 @@ export const DetailCarPage = () => {
                 <h1 className="text-lg">{data.description}</h1>
               </div>
               <div className="flex flex-col w-full items-start justify-start ">
-                <div className="mx-auto mb-6 mt-6">
+                <div className="mx-auto mb-3 mt-6">
                   <p className="text-center text-xl font-bold">
                     Agenda tu visita{" "}
                   </p>

@@ -12,6 +12,7 @@ export const CatalogPage = () => {
     retry: 1,
     refetchOnWindowFocus: false,
   });
+
   if (isError) return <Navigate to={"/"} replace />;
   if (isLoading) return <SkeletonLoader />;
   return (

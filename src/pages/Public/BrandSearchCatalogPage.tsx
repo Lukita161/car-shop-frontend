@@ -7,9 +7,9 @@ import { FilterByBrand } from "../../components/Public/Catalog/FilterByBrand";
 
 export const BrandSearchCatalogPage = () => {
   const params = useParams();
-  const brandName = params.carBrand;
+  const brandName = params.carBrand!;
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["filterCar"],
+    queryKey: ["filterCar", brandName],
     queryFn: () => getCarByBrand(brandName!),
     retry: 0,
     refetchOnWindowFocus: false,

@@ -44,7 +44,7 @@ export const HomePage = () => {
         <div ref={scrollRef} className="w-[80vw] mx-auto overflow-x-hidden ">
           <div className="flex flex-col lg:flex-row mx-auto overflow-y-hidden w-[170vw] mt-8 p-3 gap-8 shadow">
             {data?.map((car) => (
-              <div onMouseEnter={()=> setHover(car._id)} onMouseLeave={()=> setHover('')} className="border rounded-sm shadow-md border-gray-400 w-[368px] h-[436px]">
+              <Link to={`/${car.carName}/${car.brand}/view/car/${car._id}`} onMouseEnter={()=> setHover(car._id)} onMouseLeave={()=> setHover('')} className="border rounded-sm shadow-md border-gray-400 w-[368px] h-[436px]">
                 <div className="w-full flex flex-col">
 
                 <div className="w-full h-80 relative overflow-hidden">
@@ -55,15 +55,15 @@ export const HomePage = () => {
                     />
                 </div>
                 <h1 className={`${hover === car._id ? 'text-cyan-600': ''} text-xl font-normal m-3 mb-0 transition-colors duration-100 cursor-pointer`}>{car.carName}</h1>
-                  <button className="border-2 border-primary py-2 px-16 mx-auto mt-4 font-extrabold lg:py-2 rounded-full shadow-lg hover:opacity-80 transition-opacity duration-150">Conocer más</button>
+                  <Link to={`/${car.carName}/${car.brand}/view/car/${car._id}`} className="border-2 border-primary py-2 px-16 mx-auto mt-4 font-extrabold lg:py-2 rounded-full shadow-lg hover:opacity-80 transition-opacity duration-150">Conocer más</Link>
                     </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
         <ScrollArrows scrollRef={scrollRef} />
         <div className="w-full text-center my-4 ">
-          <Link className="p-3 bg-primary font-black text-center px-16 rounded-3xl shadow-md hover:bg-[#677c6c] transition-colors duration-150" to={'/catalog'} >Ver todos los autos disponibles</Link>
+          <Link className="p-3 bg-primary font-black text-center px-16 rounded-3xl shadow-md hover:bg-[#677c6c] transition-colors duration-150" to={'/catalog'} replace  >Ver todos los autos disponibles</Link>
         </div>
       </section>
     </>

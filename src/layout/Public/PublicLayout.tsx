@@ -1,10 +1,19 @@
-import { Link, Outlet } from "react-router-dom"
+
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 export const PublicLayout = ()=> {
+    const {pathname} = useLocation()
+
     return (
         <div className="w-screen h-screen overflow-x-hidden">
-            <header className="w-full top-0 border-b flex items-center bg-gray-50 border-gray-300 h-12 z-40 p-2">
-                <Link to={'/'}>Drive&Co</Link>
+            <header className="w-full flex top-0 shadow  justify-around items-center bg-primary h-12 z-40 p-2">
+                <div>
+                <Link  to={'/'}>Brand Name</Link>
+                </div>
+                <div className="flex gap-5">
+                <Link className={`${pathname==='/catalog' && 'border-b-2 border-cream'} p-1`} to={'/catalog'} >Catalogo</Link>
+                <Link to={'/contact'} className={`${pathname==='/contact' && 'border-b-2 border-cream'} p-1`} >Contacto</Link>
+                </div>
             </header>
 
             <main className="min-w-full h-full">
