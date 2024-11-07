@@ -5,10 +5,12 @@ export const PublicLayout = ()=> {
     const {pathname} = useLocation()
 
     return (
-        <div className="w-screen h-screen overflow-x-hidden">
+        <div className="w-screen h-screen overflow-x-hidden flex flex-col">
             <header className="w-full flex top-0 shadow  justify-around items-center bg-primary h-12 z-40 p-2">
                 <div>
-                <Link  to={'/'}>Brand Name</Link>
+                <Link className="text-xl font-serif"  to={'/'}>
+                    NovaCar
+                </Link>
                 </div>
                 <div className="flex gap-5">
                 <Link className={`${pathname==='/catalog' && 'border-b-2 border-cream'} p-1`} to={'/catalog'} >Catalogo</Link>
@@ -19,6 +21,7 @@ export const PublicLayout = ()=> {
             <main className="min-w-full h-full">
                 <Outlet />
             </main>
+
         </div>
     )
 }
