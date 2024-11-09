@@ -15,7 +15,7 @@ export const CarCard = ({cars}: CarCardProps)=> {
             key={cars._id}
             onMouseEnter={() => setHover(cars._id)}
             onMouseLeave={() => setHover("")}
-            className="flex w-[226px] flex-col border border-gray-400 cursor-pointer shadow"
+            className="flex w-[226px] flex-col border border-gray-300 cursor-pointer shadow rounded-md"
           >
             <div className="m-0 lg:w-full h-[190px] relative flex items-top justify-center overflow-hidden">
               <img

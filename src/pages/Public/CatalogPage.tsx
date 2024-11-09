@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { CarsPagination } from "../../components/Public/Catalog/CarsPagination";
 import { Footer } from "../../components/Public/UI/Footer";
 
-const ITEMS_PER_PAGE = 12;
+const ITEMS_PER_PAGE = 30;
 const totalCars = async () => {
   const carsRegister = await countRegisters();
   return carsRegister;

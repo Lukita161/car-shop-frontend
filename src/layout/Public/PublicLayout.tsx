@@ -1,9 +1,13 @@
 
+import { useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
+import { scrollToTop } from "../../utils/scrollToTop";
 
 export const PublicLayout = ()=> {
     const {pathname} = useLocation()
-
+    useEffect(()=> {
+        scrollToTop()
+    },[pathname])
     return (
         <div className="h-screen flex flex-col">
             <header className="w-full flex top-0 shadow  justify-around items-center bg-primary h-12 z-40 p-2">

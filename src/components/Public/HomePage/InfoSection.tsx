@@ -3,11 +3,11 @@ export const InfoSection = () => {
   return (
     <div className="w-full h-full flex flex-col justify-center gap-44 md:flex-row lg:justify-around md:gap-8 items-center flex-wrap">
       <div className="lg:w-[338px] w-[180px] h-[180px] lg:h-[338px] ">
-        <div className="w-full h-full  relative">
+        <div className="w-full h-full  relative rounded-lg">
           <img
             src="/Image-2.jpg"
             alt="Imagen uno"
-            className="w-full h-full absolute object-cover object-center"
+            className="w-full h-full absolute object-cover object-center rounded-lg"
           />
         </div>
         <div className="mt-3 pt-3 border-t-2 border-black">
@@ -22,7 +22,7 @@ export const InfoSection = () => {
           <img
             src="/Image-1.jpg"
             alt="Imagen uno"
-            className="w-full h-full absolute object-cover object-center"
+            className="w-full h-full absolute object-cover object-center rounded-lg"
           />
         </div>
         <div className="mt-3 pt-3 border-t-2 border-black">
@@ -37,7 +37,7 @@ export const InfoSection = () => {
           <img
             src="/Image-3.jpg"
             alt="Imagen uno"
-            className="w-full h-full absolute object-cover object-center"
+            className="w-full h-full absolute object-cover object-center rounded-lg"
           />
         </div>
         <div className="mt-3 pt-3 border-t-2 border-black ">
