@@ -5,7 +5,7 @@ export const PublicLayout = ()=> {
     const {pathname} = useLocation()
 
     return (
-        <div className="w-screen h-screen overflow-x-hidden flex flex-col">
+        <div className="h-screen flex flex-col">
             <header className="w-full flex top-0 shadow  justify-around items-center bg-primary h-12 z-40 p-2">
                 <div>
                 <Link className="text-xl font-serif"  to={'/'}>
@@ -18,10 +18,11 @@ export const PublicLayout = ()=> {
                 </div>
             </header>
 
-            <main className="min-w-full h-full">
+            <main className="min-w-full min-h-full">
                 <Outlet />
+                
             </main>
-
+            
         </div>
     )
 }

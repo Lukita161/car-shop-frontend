@@ -18,6 +18,20 @@ export const getTopCars = async()=> {
     }
 }
 
+export const getCarsByPage = async(page: number)=> {
+    try {
+        const { data } = await axiosInstance.get(`/api/cars/car/pages/${page}`)
+        const result = CarsInforSchema.safeParse(data)
+        if(result.error) {
+            throw new Error('Ha ocurrido un error')
+        }
+        return result.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
 export const getAllCars = async()=> {
     try {
         const { data } = await axiosInstance('/api/cars')
@@ -58,3 +72,14 @@ export const getCarByBrand = async(brand: CarInfoType['brand'])=> {
             throw new Error('No hay vehiculos de esta marca')
         }
 }}
+
+export const countRegisters = async()=> {
+    try {
+        const { data } = await axiosInstance.get<number>('/api/cars/car')
+        return data
+    } catch (error) {
+        if(isAxiosError(error) && error.message) {
+            throw new Error('Algo ha ocurrido')
+        }
+    }
+}

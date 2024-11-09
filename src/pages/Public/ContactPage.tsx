@@ -1,5 +1,6 @@
 import emailLogo from "../../assets/emailLogo.svg";
 import wppLogo from "../../assets/whatsapp-svgrepo-com.svg";
+import { Email, WhatsAppNumber } from "../../data/NovaCarSocialMedia";
 
 export const ContactPage = ()=> {
     return (
@@ -12,11 +13,11 @@ export const ContactPage = ()=> {
                     <div className="text-start flex flex-col">
                     <p className="flex items-start lg:items-center gap-3 cursor-pointer">
                     <img className="w-7 h-7" src={emailLogo} alt="" />{" "}
-                    <span className="">car.auto@gmail.com</span>{" "}
+                    <span className="">{Email}</span>{" "}
                   </p>
                   <p className="flex items-start lg:items-center gap-2 cursor-pointer">
                     <img className="w-8 h-8" src={wppLogo} alt="" />{" "}
-                    <span className="">+111 54 964 645</span>{" "}
+                    <span className="">{WhatsAppNumber}</span>{" "}
                   </p>
                     </div>
                 </div>
