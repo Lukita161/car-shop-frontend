@@ -1,5 +1,5 @@
-import emailLogo from "../../assets/emailLogo.svg";
-import wppLogo from "../../assets/whatsapp-svgrepo-com.svg";
+//import emailLogo from "../../assets/emailLogo.svg";
+//import wppLogo from "../../assets/whatsapp-svgrepo-com.svg";
 import { Footer } from "../../components/Public/UI/Footer";
 import { Email, WhatsAppNumber } from "../../data/NovaCarSocialMedia";
 
@@ -16,11 +16,11 @@ const ContactPage = () => {
             </div>
             <div className="text-start flex flex-col">
               <p className="flex items-start lg:items-center gap-3 cursor-pointer">
-                <img className="w-7 h-7" src={emailLogo} alt="Logo Email" />{" "}
+                <img className="w-7 h-7" src={'../../assets/emailLogo.svg'} alt="Logo Email" />{" "}
                 <span className="">{Email}</span>{" "}
               </p>
               <p className="flex items-start lg:items-center gap-2 cursor-pointer">
-                <img className="w-8 h-8" src={wppLogo} alt="Logo WhatsApp" />{" "}
+                <img className="w-8 h-8" src={'../../assets/whatsapp-svgrepo-com.svg'} alt="Logo WhatsApp" />{" "}
                 <span className="">{WhatsAppNumber}</span>{" "}
               </p>
             </div>
