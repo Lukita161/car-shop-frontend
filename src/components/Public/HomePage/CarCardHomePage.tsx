@@ -9,7 +9,7 @@ export const CarCardHomePage = ({ car }: { car: CarInfoType }) => {
       to={`/${car.carName}/${car.brand}/view/car/${car._id}`}
       onMouseEnter={() => setHover(car._id)}
       onMouseLeave={() => setHover("")}
-      className="border rounded-sm shadow-md border-gray-400 w-[368px] h-[436px]"
+      className="border rounded-md shadow-md border-gray-400 w-[368px] h-[436px]"
     >
       <div className="w-full flex flex-col">
         <div className="w-full h-80 relative overflow-hidden">

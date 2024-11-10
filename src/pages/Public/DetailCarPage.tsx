@@ -8,7 +8,7 @@ import emailLogo from "../../assets/emailLogo.svg";
 import wppLogo from "../../assets/whatsapp-svgrepo-com.svg";
 import { ImageSlider } from "../../components/Public/ImageSlider";
 
-export const DetailCarPage = () => {
+const DetailCarPage = () => {
   const params = useParams();
   const { carId } = params!;
   const { data, isLoading, isError } = useQuery({
@@ -56,3 +56,5 @@ export const DetailCarPage = () => {
       </section>
     );
 };
+
+export default DetailCarPage

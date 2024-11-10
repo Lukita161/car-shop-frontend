@@ -19,13 +19,12 @@ const getTotalPages = async () => {
   return Math.ceil(totalCarsCount! / ITEMS_PER_PAGE);
 };
 
-export const CatalogPage = () => {
+const CatalogPage = () => {
   const queryClient = useQueryClient()
   const [totalPages, setTotalPages] = useState(1)
   const location = useLocation()
   const queryParams = new URLSearchParams(location.search)
   const page = Number(queryParams.get('page') || 1)
-  console.log(page)
   const { data, isLoading, isError } = useQuery({
     queryKey: ["paginationCars"],
     queryFn: ()=>getCarsByPage(page),
@@ -44,7 +43,7 @@ export const CatalogPage = () => {
     <>
     <section className="w-full flex flex-col items-center justify-between">
 
-      <div className="w-[90%] m-4 p-3 flex flex-row justify-between items-center">
+      <div className="w-[90%] m-4 p-3 flex flex-col gap-8 sm:flex-row sm:gap-0 justify-between items-center">
         <div className="">
           <h1 className="font-black text-3xl">Nuestros vehiculos:</h1>
           <p className="text-sm">Hora de encontrar tu auto ideal</p>
@@ -54,7 +53,7 @@ export const CatalogPage = () => {
         </div>
       </div>
       <div className="flex flex-col">
-      <main className="mx-16 grid lg:grid-cols-5 md:grid-cols-2 sm:grid-cols-2 m-2 gap-7 pb-8">
+      <main className="mx-16 grid grid-cols-1 lg:grid-cols-5 md:grid-cols-2 sm:grid-cols-2 m-2 gap-7 pb-8">
         {data?.map((cars) => (
           <CarCard key={cars._id} cars={cars} />
         ))}
@@ -69,3 +68,5 @@ export const CatalogPage = () => {
     </>
   );
 };
+
+export default CatalogPage

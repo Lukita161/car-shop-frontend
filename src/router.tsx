@@ -4,13 +4,9 @@ import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { lazy, Suspense } from "react";
-import { HomePage } from "./pages/Public/HomePage";
-import { PublicLayout } from "./layout/Public/PublicLayout";
-import { CatalogPage } from "./pages/Public/CatalogPage";
-import { DetailCarPage } from "./pages/Public/DetailCarPage";
-import { BrandSearchCatalogPage } from "./pages/Public/BrandSearchCatalogPage";
-import { ContactPage } from "./pages/Public/ContactPage";
+import { Loader } from "./components/Public/UI/Loader/Loader";
 
+const PublicRouter = lazy(()=> import('./Router/PublicRouter'))
 const LoginPage = lazy(() => import("./pages/Private/Login/LoginPage"));
 const PrivateRouter = lazy(() => import("./Router/PrivateRouter"));
 const PrivateGuard = lazy(() => import("./guard/PrivateGuard"));
@@ -18,27 +14,14 @@ const PrivateGuard = lazy(() => import("./guard/PrivateGuard"));
 export const Router = () => {
   return (
     <BrowserRouter>
-
-      <Routes >
-        <Route  element={<PublicLayout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/catalog" element={<CatalogPage />} />
-          <Route
-            path="/:carName/:carBrand/view/car/:carId"
-            element={<DetailCarPage />}
-            />
-          <Route
-            path="/catalog/filter/brand/:carBrand"
-            element={<BrandSearchCatalogPage />}
-            />
-            <Route path="/contact" element={<ContactPage />} />
-        </Route>
-      </Routes>
+    <Suspense fallback={<Loader />}>
+      <PublicRouter />
+    </Suspense>
 
       <Routes key={"Login"}>
         <Route path="/login" element={<LoginPage />} />
       </Routes>
-      <Suspense fallback={<p>Cargando...</p>}>
+      <Suspense fallback={<Loader />}>
         <Routes key={"adminRoutes"}>
           <Route element={<PrivateGuard />}>
             <Route path="/private/*" element={<PrivateRouter />} />

@@ -5,7 +5,7 @@ import { SkeletonLoader } from "../../components/UI/SkeletonLoader";
 import { CarCard } from "../../components/Public/Catalog/CarCard";
 import { FilterByBrand } from "../../components/Public/Catalog/FilterByBrand";
 
-export const BrandSearchCatalogPage = () => {
+const BrandSearchCatalogPage = () => {
   const params = useParams();
   const brandName = params.carBrand!;
   const { data, isLoading, isError } = useQuery({
@@ -38,3 +38,5 @@ export const BrandSearchCatalogPage = () => {
     </>
   );
 };
+
+export default BrandSearchCatalogPage

@@ -1,4 +1,4 @@
-export const InfoSection = () => {
+const InfoSection = () => {
   // las img pueden ser de 278px proba ambas opciones
   return (
     <div className="w-full h-full flex flex-col justify-center gap-44 md:flex-row lg:justify-around md:gap-8 items-center flex-wrap">
@@ -50,3 +50,5 @@ export const InfoSection = () => {
     </div>
   );
 };
+
+export default InfoSection
