@@ -5,6 +5,9 @@ type UploadImageProps = {
     setIsUploading: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+const cloudName =  import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
+const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
+
 export const UploadImage = ({setImageUrl, setIsUploading}:UploadImageProps)=> {
     const cloudinaryRef = useRef()
     const widgetRef = useRef()
@@ -13,8 +16,8 @@ export const UploadImage = ({setImageUrl, setIsUploading}:UploadImageProps)=> {
         cloudinaryRef.current = window.cloudinary
          // @ts-expect-error sabe
         widgetRef.current = cloudinaryRef.current.createUploadWidget({
-            cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME,
-            uploadPreset: import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
+            cloudName,
+            uploadPreset
         }, function (error, result){
             if(result.event==='success') {
                     setImageUrl((prevImgUrl)=> [...prevImgUrl, result.info.url])
