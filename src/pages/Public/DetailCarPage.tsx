@@ -4,8 +4,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { getCarById } from "../../api/Public/CarsApi";
 import { formatCurrency } from "../../utils/formatCurrency";
-//import emailLogo from "../../assets/emailLogo.svg";
-//import wppLogo from "../../assets/whatsapp-svgrepo-com.svg";
+import emailLogo from "../../assets/emailLogo.svg";
+import wppLogo from "../../assets/whatsapp-svgrepo-com.svg";
 import { ImageSlider } from "../../components/Public/ImageSlider";
 
 const DetailCarPage = () => {
@@ -41,11 +41,11 @@ const DetailCarPage = () => {
 
                 <div className="flex w-full h-full flex-col items-start lg:items-center justify-start space-y-1">
                   <p className="flex items-start lg:items-center gap-3 cursor-pointer">
-                    <img className="w-7 h-7" src={'../../assets/emailLogo.svg'} alt="" />{" "}
+                    <img className="w-7 h-7" src={emailLogo} alt="" />{" "}
                     <span className="">car.auto@gmail.com</span>{" "}
                   </p>
                   <p className="flex items-start lg:items-center gap-2 cursor-pointer">
-                    <img className="w-8 h-8" src={'../../assets/whatsapp-svgrepo-com.svg'} alt="" />{" "}
+                    <img className="w-8 h-8" src={wppLogo} alt="" />{" "}
                     <span className="">+111 54 964 645</span>{" "}
                   </p>
                 </div>
