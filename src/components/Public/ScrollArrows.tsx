@@ -3,7 +3,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 export const ScrollArrows = ({
   scrollRef,
 }: {
-  scrollRef: React.MutableRefObject<null>;
+  scrollRef: React.MutableRefObject<HTMLDivElement>;
 }) => {
   const scrollLeft = () => {
     if (scrollRef.current) {

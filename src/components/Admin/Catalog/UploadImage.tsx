@@ -9,7 +9,9 @@ export const UploadImage = ({setImageUrl, setIsUploading}:UploadImageProps)=> {
     const cloudinaryRef = useRef()
     const widgetRef = useRef()
     useEffect(()=> {
+        // @ts-expect-error sabe
         cloudinaryRef.current = window.cloudinary
+         // @ts-expect-error sabe
         widgetRef.current = cloudinaryRef.current.createUploadWidget({
             cloudName: import.meta.env.VITE_CLOUDINARY_CLOUD_NAME,
             uploadPreset: import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
@@ -19,9 +21,9 @@ export const UploadImage = ({setImageUrl, setIsUploading}:UploadImageProps)=> {
                     setIsUploading(true)
             }
         })
-    },[setImageUrl])
+    },[setImageUrl, setIsUploading])
     const handleClick = ()=> {
-
+         // @ts-expect-error sabe
         widgetRef.current.open()
     }
     return (

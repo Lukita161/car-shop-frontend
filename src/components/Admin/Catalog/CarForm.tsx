@@ -16,6 +16,7 @@ type CarFormProps = {
 export const CarForm = ({carInfo}:CarFormProps) => {
   const navigate = useNavigate()
     const [imageUrl, setImageUrl] = useState<ImageUrlArray>(carInfo.image)
+    const [isUploading, setIsUploading] = useState(false)
     const {mutate} = useMutation({
         mutationFn: updateCar,
         onError:(error)=> {
@@ -27,6 +28,7 @@ export const CarForm = ({carInfo}:CarFormProps) => {
         }
     })
     const handleSubmit = (e:React.FormEvent<HTMLFormElement>)=> {
+      if(isUploading) return
         e.preventDefault()
         const formData = new FormData(e.currentTarget)
         const formObject = Object.fromEntries(formData)
@@ -103,7 +105,7 @@ export const CarForm = ({carInfo}:CarFormProps) => {
             defaultValue={carInfo.price}
           />
         </div>
-        <UploadImage setImageUrl={setImageUrl} imageUrl={imageUrl} />
+        <UploadImage setImageUrl={setImageUrl} setIsUploading={setIsUploading} />
 
         <div className="flex gap-3">
           {imageUrl ? (
