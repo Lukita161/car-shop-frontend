@@ -1,6 +1,6 @@
-import emailLogo from '../../../assets/emailLogo.svg';
-import wppLogo from '../../../assets/whatsapp-svgrepo-com.svg';
-import instagramLogo from '../../../assets/instagramLogo.svg';
+//import emailLogo from '../../../assets/emailLogo.svg';
+//import wppLogo from '../../../assets/whatsapp-svgrepo-com.svg';
+//import instagramLogo from '../../../assets/instagramLogo.svg';
 import { Email, WhatsAppNumber, instragramAccount } from "../../../data/NovaCarSocialMedia"
 
 export const Footer = () => {
@@ -14,15 +14,15 @@ export const Footer = () => {
           </div>
         <div className="flex flex-col items-start lg:items-start gap-1 justify-center">
         <p className="flex items-start lg:items-center gap-3 cursor-pointer">
-                    <img className="w-7 h-7" src={emailLogo} alt="Logo Email" />{" "}
+                    <img className="w-7 h-7" src={'../../../assets/emailLogo.svg'} alt="Logo Email" />{" "}
                     <span className="text-sm">{Email}</span>{" "}
                   </p>
                   <p className="flex items-start lg:items-center gap-3 cursor-pointer">
-                    <img className="w-7 h-7" src={wppLogo} alt="LogoWhatsApp" />{" "}
+                    <img className="w-7 h-7" src={'../../../assets/whatsapp-svgrepo-com.svg'} alt="LogoWhatsApp" />{" "}
                     <span className="text-sm">{WhatsAppNumber}</span>{" "}
                   </p>
                   <p className="flex items-start lg:items-center gap-3 cursor-pointer">
-                    <img className="w-6 h-6" src={instagramLogo} alt="Logo instagram" />{" "}
+                    <img className="w-6 h-6" src={'../../../assets/instagramLogo.svg'} alt="Logo instagram" />{" "}
                     <span className="text-sm">{instragramAccount}</span>{" "}
                   </p>
         </div>
