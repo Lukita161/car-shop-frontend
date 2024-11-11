@@ -12,7 +12,7 @@ const PrivateGuard = lazy(() => import("./guard/PrivateGuard"));
 
 export const Router = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/">
     <Routes key={"Login"}>
         <Route path="/login" element={<LoginPage />} />
       </Routes>
