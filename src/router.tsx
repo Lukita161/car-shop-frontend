@@ -13,13 +13,14 @@ const PrivateGuard = lazy(() => import("./guard/PrivateGuard"));
 export const Router = () => {
   return (
     <BrowserRouter>
+    <Routes key={"Login"}>
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
     <Suspense fallback={<Loader />}>
       <PublicRouter />
     </Suspense>
 
-      <Routes key={"Login"}>
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
+      
       <Suspense fallback={<Loader />}>
         <Routes key={"adminRoutes"}>
           <Route element={<PrivateGuard />}>

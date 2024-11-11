@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import { CarsPagination } from "../../../components/Admin/Catalog/CarsPagination";
 import { SkeletonLoader } from "../../../components/UI/SkeletonLoader";
 
-const pageSize = 12;
+const pageSize = 30;
 const totalCars = async () => {
   const carsRegister = await countCarsRegisters();
   return carsRegister;

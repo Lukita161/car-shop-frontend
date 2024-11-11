@@ -1,5 +1,5 @@
 import { isAxiosError } from "axios";
-import { axiosInstance } from "../../lib/axios";
+import { axiosPrivateInstance } from "../../lib/axios";
 import { AdminInfoSchema, AdminsInfoSchema, CreateAdminSchema } from "../../schema";
 import { AdminCredentialsFormType, ChangeAdminCredentialsType, CreateAdminFormType } from "../../types";
 
@@ -9,7 +9,7 @@ export const createAdmin = async(formData: CreateAdminFormType)=> {
         if(result.error) {
             throw new Error('Ha ocurrido un error al crear el vehiculo, intentalo nuevamente')
         }
-        const { data } = await axiosInstance.post<string>('/admin/register', result.data )
+        const { data } = await axiosPrivateInstance.post<string>('/admin/register', result.data )
         return data
     } catch (error) {
         if(isAxiosError(error) && error.message) {
@@ -22,7 +22,7 @@ export const createAdmin = async(formData: CreateAdminFormType)=> {
 export const getAdminInfo = async()=> {
     try {
         const token = localStorage.getItem('sessionKey')
-        const { data } = await axiosInstance.get('/admin',{
+        const { data } = await axiosPrivateInstance.get('/admin',{
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -42,7 +42,7 @@ export const getAdminInfo = async()=> {
 export const getAdminCredentials = async()=> {
     try {
         const token = localStorage.getItem('sessionKey')
-        const { data } = await axiosInstance.get('/admin',{
+        const { data } = await axiosPrivateInstance.get('/admin',{
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -61,7 +61,7 @@ export const getAdminCredentials = async()=> {
 
 export const getAllAdmins = async()=> {
     try {
-        const { data } = await axiosInstance.get(`/admin/get-admins`)
+        const { data } = await axiosPrivateInstance.get(`/admin/get-admins`)
         const result = AdminsInfoSchema.safeParse(data)
         if(result.error) {
             throw new Error('No es posible ejecutar esto')
@@ -80,7 +80,7 @@ type changeAdminCredentialsType = {
 
 export const changeAdminCredentials = async({id, formData} : changeAdminCredentialsType)=> {
     try {
-        const { data } = await axiosInstance.put<string>(`/admin/change-credentials/${id}`, formData)
+        const { data } = await axiosPrivateInstance.put<string>(`/admin/change-credentials/${id}`, formData)
         return data
     } catch (error) {
         if(isAxiosError(error) && error.message) {
@@ -91,7 +91,7 @@ export const changeAdminCredentials = async({id, formData} : changeAdminCredenti
 
 export const deleteAdmin = async(id: changeAdminCredentialsType['id'])=> {
     try {
-        const { data } = await axiosInstance.delete<string>(`/admin/${id}`)
+        const { data } = await axiosPrivateInstance.delete<string>(`/admin/${id}`)
         return data
     } catch (error) {
         if(isAxiosError(error) && error.message) {

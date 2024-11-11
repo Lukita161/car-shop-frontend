@@ -1,5 +1,5 @@
 import { isAxiosError } from 'axios'
-import { axiosInstance } from '../lib/axios'
+import { axiosPrivateInstance } from '../lib/axios'
 import { LoginFormSchema } from '../schema'
 import { LoginFormType } from "../types"
 
@@ -11,7 +11,8 @@ export const LoginAdmin = async(loginFormData: LoginFormType)=> {
                 errors: result.error.issues
             }
         }
-        const { data } = await axiosInstance.post<string>('/admin/login', result.data)
+        const { data } = await axiosPrivateInstance.post<string>('/admin/login', result.data)
+        console.log(data)
         localStorage.setItem('sessionKey', data)
         return data
     } catch (error) {

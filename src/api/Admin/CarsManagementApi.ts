@@ -1,5 +1,5 @@
 import { isAxiosError } from "axios"
-import { axiosInstance } from "../../lib/axios"
+import { axiosPrivateInstance } from "../../lib/axios"
 import { CarInfoSchema, CarsInforSchema, CreateCarSchema } from "../../schema"
 import { CarInfoType, CreateCarFormType } from "../../types"
 
@@ -11,7 +11,7 @@ export const createCar = async(formData: CreateCarFormType)=> {
         if(result.error) {
             throw new Error('Ha ocurrido un error al crear el vehiculo, intentalo nuevamente')
         }
-        const { data } = await axiosInstance.post<string>('/api/cars', result.data )
+        const { data } = await axiosPrivateInstance.post<string>('/api/cars', result.data )
         return data
     } catch (error) {
         if(isAxiosError(error) && error.message) {
@@ -22,7 +22,7 @@ export const createCar = async(formData: CreateCarFormType)=> {
 
 export const getAllCars = async()=> {
     try {
-        const { data } = await axiosInstance.get(`/api/cars`)
+        const { data } = await axiosPrivateInstance.get(`/api/cars`)
         const result = CarsInforSchema.safeParse(data)
         if(result.error) {
             throw new Error('Ha ocurrido un error')
@@ -35,7 +35,7 @@ export const getAllCars = async()=> {
 
 export const getCars = async(page: number)=> {
     try {
-        const { data } = await axiosInstance.get(`/api/cars/car/pages/${page}`)
+        const { data } = await axiosPrivateInstance.get(`/api/cars/car/pages/${page}`)
         const result = CarsInforSchema.safeParse(data)
         if(result.error) {
             throw new Error('Ha ocurrido un error')
@@ -48,7 +48,7 @@ export const getCars = async(page: number)=> {
 
 export const getCarById = async(carId: CarInfoType['_id'])=> {
     try {
-        const { data } = await axiosInstance.get<string>(`/api/cars/car/${carId}`)
+        const { data } = await axiosPrivateInstance.get<string>(`/api/cars/car/${carId}`)
         const result = CarInfoSchema.safeParse(data)
         if(result.error) {
             throw new Error('Ha ocurrido un error')
@@ -63,7 +63,7 @@ export const getCarById = async(carId: CarInfoType['_id'])=> {
 
 export const getCarByBrand = async(brand: CarInfoType['brand'])=> {
     try {
-        const { data } = await axiosInstance.get<string>(`/api/cars/car/filters/${brand}`)
+        const { data } = await axiosPrivateInstance.get<string>(`/api/cars/car/filters/${brand}`)
         const result = CarsInforSchema.safeParse(data)
         return result.data
     } catch (error) {
@@ -83,7 +83,7 @@ export const updateCar = async({carId, formData}: UpdateCarProps)=> {
         if(result.error) {
             throw new Error('Ha ocurrido un error al crear el vehiculo, intentalo nuevamente')
         }
-        const { data } = await axiosInstance.put(`api/cars/car/${carId}`, result.data)
+        const { data } = await axiosPrivateInstance.put(`api/cars/car/${carId}`, result.data)
         return data
     } catch (error) {
         if(isAxiosError(error) && error.message) {
@@ -94,7 +94,7 @@ export const updateCar = async({carId, formData}: UpdateCarProps)=> {
 
 export const deleteCar = async(carId: CarInfoType['_id'])=> {
     try {
-        const { data } = await axiosInstance.delete<string>(`/api/cars/car/${carId}`)
+        const { data } = await axiosPrivateInstance.delete<string>(`/api/cars/car/${carId}`)
         return data
     } catch (error) {
         if(isAxiosError(error) && error.message) {
@@ -107,7 +107,7 @@ export const deleteCar = async(carId: CarInfoType['_id'])=> {
 
 export const countCarsRegisters = async()=> {
     try {
-        const { data } = await axiosInstance.get<number>('/api/cars/car')
+        const { data } = await axiosPrivateInstance.get<number>('/api/cars/car')
         return data
     } catch (error) {
         if(isAxiosError(error) && error.message) {
