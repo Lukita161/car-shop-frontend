@@ -56,7 +56,7 @@ const HomePage = () => {
             </div>
             <div
               ref={scrollRef}
-              className="w-[80vw] mx-auto overflow-x-hidden "
+              className="md:w-[80vw] mx-auto overflow-x-hidden "
             >
               <div className="w-full items-center sm:mx-auto sm:items-start overflow-hidden flex flex-col md:flex-row mx-auto overflow-y-hidden sm:w-[170vw] mt-8 p-3 gap-8 shadow">
                 {data?.map((car) => (
